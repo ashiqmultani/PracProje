@@ -1,0 +1,10 @@
+/* Nevbar.css */
+.navbar-light {
+  /* Light mode background color */
+  color: #000; /* Text color for light mode */
+}
+
+.navbar-dark {
+ /* Dark mode background color */
+  color: #fff; /* Text color for dark mode */
+}
