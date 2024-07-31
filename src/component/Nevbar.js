@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Nevbar.css'; // Import your CSS file for Nevbar styles
+
+import { Link } from 'react-router-dom';
+//import './Nevbar.css'; // Import your CSS file for Nevbar styles
+//import { a } from 'react-router-dom';
 
 export default function Nevbar(props) {
   return (
     <div>
-      <nav className={`navbar navbar-expand-lg ${props.mode === 'light' ? 'navbar-light bg-body-tertiary' : 'navbar-dark bg-dark'}`}>
+      <nav className={`navbar navbar-expand-lg ${props.mode === 'light' ? 'navbar-dark bg-body-tertiary' : 'navbar-light bg-dark'}`}>
         <div className="container-fluid">
-          <a className={`navbar-brand ${props.mode === 'light' ? 'text-dark' : 'text-light'}`} href="/">{props.title}</a>
+          <Link className={`navbar-brand ${props.mode === 'light' ? 'text-dark' : 'text-light'}`} to="#">{props.title}</Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -21,11 +24,11 @@ export default function Nevbar(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">Home</a>
+              <li className={`nav-item ${props.mode === 'light' ? 'text-dark' : 'text-light'} `}>
+                <Link className={ `nav-a active link navbar-brand ${props.mode === 'light' ? 'text-dark' : 'text-light'}`} aria-current="page" to="/" >Home</Link>
               </li>
               <li className="nav-item" >
-                <a className="nav-link" href="/">{props.aboutText}</a>
+                <Link className={`nav-a link navbar-brand ${props.mode === 'light' ? 'text-dark' : 'text-light'}`} aria-current="page" to="/about">{props.aboutText}</Link>
               </li>
             </ul>
             <form className="d-flex" role="search">

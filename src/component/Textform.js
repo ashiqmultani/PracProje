@@ -9,22 +9,33 @@ export default function Textform(props) {
 
   const onClickHandle = () => {
     setText(text.toUpperCase());
+    if(text.length>0){
+      props.showAlert("Converted to UpperCase!" ,"Success")
+    }
   };
 
   const onClickLowHandle = () => {
     setText(text.toLowerCase());
+    if(text.length>0){
+      props.showAlert("Converted to LowerCase!" ,"Success")
+    }
   };
 
   const onClickClearHandle = () => {
     setText('');
+    if(text.length>0)
+    props.showAlert("Clean the Text!" ,"Success")
   };
 
   const onClickReplaceHandle = () => {
     setText(text.replace(/\b\w+\b/, replacement));
+    if(text.length>0)
+    props.showAlert("Text has been Replace!" ,"Success")
   };
 
   const onChangeHandle = (event) => {
     setText(event.target.value);
+    
   };
 
   const onChangeReplacementHandle = (event) => {
@@ -53,16 +64,16 @@ export default function Textform(props) {
       </div>
       <div className="row mb-3">
         <div className="col">
-          <button className="btn btn-primary w-100" onClick={onClickHandle}>Convert to UpperCase</button>
+          <button className="btn btn-primary w-100 my-1" onClick={onClickHandle}>Convert to UpperCase</button>
         </div>
         <div className="col">
-          <button className="btn btn-primary w-100" onClick={onClickLowHandle}>Convert to LowerCase</button>
+          <button className="btn btn-primary w-100 my-1" onClick={onClickLowHandle}>Convert to LowerCase</button>
         </div>
         <div className="col">
-          <button className="btn btn-primary w-100" onClick={onClickClearHandle}>Clear</button>
+          <button className="btn btn-primary w-100 my-1" onClick={onClickClearHandle}>Clear</button>
         </div>
         <div className="col">
-          <button className="btn btn-primary w-100" onClick={onClickReplaceHandle}>Replace Word</button>
+          <button className="btn btn-primary w-100 my-1" onClick={onClickReplaceHandle}>Replace Word</button>
         </div>
       </div>
       <div className="mb-3">
@@ -79,6 +90,9 @@ export default function Textform(props) {
       <div className="container my-3">
         <h1>Character and Words Count</h1>
         <p>Total Characters: {text.trim().length} and Total Words: {text.trim().split(/\s+/).filter(word => word.length > 0).length}</p>
+        <h1>Time need to read : </h1>
+        <p>Time is : {text.length * 0.05}</p>
+
         <h1>Preview</h1>
         <p>{text.length > 0 ? text : "Enter something in the above textbox to preview it"}</p>
       </div>
