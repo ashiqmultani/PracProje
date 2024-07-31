@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import './App.css'
-import Nevbar from "./component/Nevbar";
-import Textform from "./component/Textform";
-import Alert from "./component/Alert";
-import About from "./component/about";
+import Nevbar from "./components/Navbar";
+import Textform from "./components/TextForm";
+import Alert from "./components/Alert";
+import About from "./components/About";
 import {
   BrowserRouter as Router,
   Routes,
@@ -41,12 +41,12 @@ function App() {
     <>
   <Router>
       <div >
+      
       <Nevbar title="TextUtils" aboutText="About" mode={mode} toggleMode={toggleMode} />
       <Alert alert ={alert}/>
-       <Routes>
+      <Routes>
         <Route exact path="/about" element={<About/>}/>
         <Route exact path="/" element={<Textform showAlert={showAlert} heading = "Enter the text to analyze"/>}/>
-        {/* <Textform showAlert={showAlert} heading = "Enter the text to analyze"/> */}
       </Routes>
     </div>
     
